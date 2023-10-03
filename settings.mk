@@ -374,9 +374,9 @@ setup_%: testEnvSetup
 	@$(ECHO) set JDK_IMPL to $(JDK_IMPL)
 	@$(ECHO) set JVM_VERSION to $(JVM_VERSION)
 	@$(ECHO) set JCL_VERSION to $(JCL_VERSION)
-	@if [ $(OLD_JAVA_HOME) ]; then \
-		$(ECHO) JAVA_HOME was originally set to $(OLD_JAVA_HOME); \
-	fi
+ifneq (,$(OLD_JAVA_HOME))
+$(ECHO) JAVA_HOME was originally set to $(OLD_JAVA_HOME);
+endif
 	@$(ECHO) set JAVA_HOME to $(JAVA_HOME)
 	@$(ECHO) set SPEC to $(SPEC)
 	@$(ECHO) set TEST_FLAG to $(TEST_FLAG)
